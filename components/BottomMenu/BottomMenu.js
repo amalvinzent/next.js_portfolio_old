@@ -1,7 +1,11 @@
-import { useState, useRef } from 'react'
+import { useMemo, useState } from 'react'
 import styles from './BottomMenu.module.css'
 import { BiHome, BiUser, BiBookAlt, BiFolder, BiMessage } from 'react-icons/bi'
-import Home from '../../pages/Home/Home'
+import Home from '@/pages/Home/Home'
+import Profile from '@/pages/Profile/Profile'
+import Particles from 'react-tsparticles'
+import { loadFull } from 'tsparticles'
+import { particlesOptions } from './particlesConfig'
 
 export default function BottomMenu() {
   const [active, setActive] = useState({
@@ -11,26 +15,25 @@ export default function BottomMenu() {
     recent_work: false,
     contact: false
   })
-  const homeSection = useRef(null)
 
-  const scrollDown = () => {
-    window.scrollTo({
-      top: homeSection.current.offsetTop,
-      behavior: 'smooth'
-    })
-  }
+  const particlesInit = useMemo(
+    () => (engine) => {
+      loadFull(engine)
+    },
+    [true]
+  )
 
   return (
     <div>
+      <div className={styles.particles}>
+        <Particles init={particlesInit} options={particlesOptions} />
+      </div>
       <nav className={styles.nav_container}>
         <a
-          ref={homeSection}
-          href="#"
           onClick={() => {
             setActive(() => ({
               home: true
             }))
-            scrollDown()
           }}
           className={active.home ? styles.active : null}
         >
@@ -81,6 +84,12 @@ export default function BottomMenu() {
           <BiMessage size={18} color={active.contact ? 'black' : 'white'} />
         </a>
       </nav>
+      <div>
+        <Home />
+      </div>
+      {/* <div>
+        <Profile />
+      </div> */}
     </div>
   )
 }

@@ -4,42 +4,47 @@
   left: 50%;
   position: fixed;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 99;
   padding: 1.4rem;
-  border-radius: 5px;
-  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  background: hsla(0, 0%, 100%, 0.8);
   background: transparent;
+  backdrop-filter: blur(10px);
 }
 
 .nav_container a {
-  padding-bottom: 1rem;
-  padding-top: 1.2rem;
-  padding-left: 1.2rem;
-  padding-right: 1.2rem;
-  transition: background-color 0.15s ease-in;
-  border-radius: 14px;
-  margin: 5px;
+  padding-bottom: 0.8rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  transition: background-color 0.3s linear;
+  border-radius: 8px;
+  margin: 0.5rem;
 }
 
 .nav_container a:hover {
-  background-color: #141414;
+  background-color: #0f0e0e;
 }
 
 .active {
-  background-color: #cdfcf6;
+  background-color: #daf5ff;
   border-radius: 14px;
   pointer-events: none;
 }
 
 @media (min-width: 385px) and (max-width: 850px) {
   .nav_container {
-    padding: 0.5rem;
+    padding: 0.2rem;
     display: flex;
   }
   .nav_container a {
-    padding: 1.2rem;
+    padding: 1rem;
   }
   .nav_container a:hover {
-    background-color: #cdfcf6;
+    background-color: #daf5ff;
   }
+}
+
+.particles {
+  z-index: -1;
 }

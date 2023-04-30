@@ -1,0 +1,10 @@
+.container {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  font-weight: 400;
+  font-size: medium;
+}
